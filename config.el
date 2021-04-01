@@ -131,7 +131,7 @@
 (add-hook 'find-file-hook #'toggle-truncate-lines)
 
 (use-package! ron-mode)
-(use-package! ox-twbs)
+;(use-package! ox-twbs)
 
 
 ;; gnuplot
