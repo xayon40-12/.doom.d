@@ -75,7 +75,8 @@
     (while (outline-previous-heading)
       (when (org-entry-is-done-p)
         (show-subtree)))))
-(add-hook 'org-mode-hook #'org-fold-all-done-entries)
+(add-hook 'org-mode-hook '(lambda () (progn (org-fold-all-done-entries)
+                                       (toggle-truncate-lines))))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -126,7 +127,7 @@
       "e r" #'eval-region)
 
 ;; Line wrap
-;(set-default 'truncate-lines t)
+(set-default 'truncate-lines t)
 (setq truncate-partial-width-windows nil)
 (add-hook 'find-file-hook #'toggle-truncate-lines)
 
