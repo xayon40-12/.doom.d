@@ -33,7 +33,8 @@
       doom-big-font (font-spec :family "Mononoki Nerd Font" :size 48))
 (after! doom-themes
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t))
+        doom-themes-enable-italic t)
+  (load-theme 'doom-palenight t))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -76,7 +77,8 @@
       (when (org-entry-is-done-p)
         (show-subtree)))))
 (add-hook 'org-mode-hook '(lambda () (org-fold-all-done-entries)
-                                (visual-line-mode -1)))
+                            (visual-line-mode -1)))
+                            ;(toggle-truncate-lines)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -131,9 +133,11 @@
 (setq truncate-partial-width-windows nil)
 (add-hook 'find-file-hook #'toggle-truncate-lines)
 
+;(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
+(setq org-ditaa-jar-path "/home/xayon/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
+
 (use-package! ron-mode)
 ;(use-package! ox-twbs)
-
 
 ;; gnuplot
 (autoload 'gnuplot-mode "gnuplot" "Gnuplot major mode" t)
