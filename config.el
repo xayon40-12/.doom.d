@@ -4,7 +4,7 @@
 ;; sync' after modifying this file!
 
 ;; load exwm
-;(load "~/.doom.d/exwm")
+                                        ;(load "~/.doom.d/exwm")
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -50,11 +50,11 @@
         org-export-with-toc t
         org-export-with-date nil
         org-babel-default-header-args
-          (cons '(:noweb . "yes") (assq-delete-all :noweb org-babel-default-header-args))
+        (cons '(:noweb . "yes") (assq-delete-all :noweb org-babel-default-header-args))
         org-babel-default-header-args
-          (cons '(:exports . "both") (assq-delete-all :exports org-babel-default-header-args))
+        (cons '(:exports . "both") (assq-delete-all :exports org-babel-default-header-args))
         org-babel-default-header-args
-          (cons '(:results . "output verbatim replace") (assq-delete-all :results org-babel-default-header-args))
+        (cons '(:results . "output verbatim replace") (assq-delete-all :results org-babel-default-header-args))
         )
   )
 (map! :leader
@@ -78,7 +78,7 @@
         (show-subtree)))))
 (add-hook 'org-mode-hook '(lambda () (org-fold-all-done-entries)
                             (visual-line-mode -1)))
-                            ;(toggle-truncate-lines)))
+                                        ;(toggle-truncate-lines)))
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -130,11 +130,11 @@
       "e r" #'eval-region)
 
 ;; Line wrap
-;(set-default 'truncate-lines t)
+;;(set-default 'truncate-lines t)
 (setq truncate-partial-width-windows nil)
 (add-hook 'find-file-hook #'toggle-truncate-lines)
 
-;(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
+;;(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
 (setq org-ditaa-jar-path "/home/xayon/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
 
 (use-package! ron-mode)
@@ -142,6 +142,7 @@
 ;; org-ref
 (use-package! org-ref)
 (use-package! ox-bibtex)
+(use-package! ox-beamer)
 (setq reftex-default-bibliography '("~/thesis/bibliography/references.bib"))
 ;; see org-ref for use of these variables
 (setq org-ref-bibliography-notes "~/thesis/bibliography/notes.org"
@@ -153,14 +154,20 @@
 (setq bibtex-completion-pdf-open-function 'org-open-file)
 ;; alternative
 ;; open pdf with system pdf viewer
-;(setq bibtex-completion-pdf-open-function
-;  (lambda (fpath)
-;    (start-process "open" "*open*" "xdg-open" fpath)))
+;;(setq bibtex-completion-pdf-open-function
+;;  (lambda (fpath)
+;;    (start-process "open" "*open*" "xdg-open" fpath)))
 
 ;;latex
-(add-to-list 'org-latex-packages-alist '("" "natbib" t))
-(add-to-list 'org-latex-packages-alist '("" "cleveref" t))
-(add-to-list 'org-latex-packages-alist '("" "float" t))
+(setq org-latex-packages-alist '(
+                                 ("" "natbib" t)
+                                 ("" "cleveref" t)
+                                 ("" "float" t)
+                                 ("" "braket" t)
+                                 ("" "xcolor" t)
+                                 ("" "tikz" t)
+                                 ("margin=2.5cm,nohead" "geometry" t)
+                                 ))
 (setq org-latex-pdf-process
       '("pdflatex -interaction nonstopmode -output-directory %o %f"
         "bibtex %b"
@@ -170,7 +177,7 @@
 ;;tramp mode
 (setq tramp-default-method "ssh")
 
-;(use-package! ox-twbs)
+;;(use-package! ox-twbs)
 
 ;; gnuplot
 (autoload 'gnuplot-mode "gnuplot" "Gnuplot major mode" t)
