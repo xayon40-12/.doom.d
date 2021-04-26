@@ -80,6 +80,7 @@
                             (visual-line-mode -1)))
                             ;(toggle-truncate-lines)))
 
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -137,6 +138,38 @@
 (setq org-ditaa-jar-path "/home/xayon/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
 
 (use-package! ron-mode)
+
+;; org-ref
+(use-package! org-ref)
+(use-package! ox-bibtex)
+(setq reftex-default-bibliography '("~/thesis/bibliography/references.bib"))
+;; see org-ref for use of these variables
+(setq org-ref-bibliography-notes "~/thesis/bibliography/notes.org"
+      org-ref-default-bibliography '("~/thesis/bibliography/references.bib")
+      org-ref-pdf-directory "~/thesis/bibliography/bibtex-pdfs/")
+(setq bibtex-completion-bibliography "~/thesis/bibliography/references.bib"
+      bibtex-completion-library-path "~/thesis/bibliography/bibtex-pdfs"
+      bibtex-completion-notes-path "~/thesis/bibliography/bibtex-notes")
+(setq bibtex-completion-pdf-open-function 'org-open-file)
+;; alternative
+;; open pdf with system pdf viewer
+;(setq bibtex-completion-pdf-open-function
+;  (lambda (fpath)
+;    (start-process "open" "*open*" "xdg-open" fpath)))
+
+;;latex
+(add-to-list 'org-latex-packages-alist '("" "natbib" t))
+(add-to-list 'org-latex-packages-alist '("" "cleveref" t))
+(add-to-list 'org-latex-packages-alist '("" "float" t))
+(setq org-latex-pdf-process
+      '("pdflatex -interaction nonstopmode -output-directory %o %f"
+        "bibtex %b"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -interaction nonstopmode -output-directory %o %f"))
+
+;;tramp mode
+(setq tramp-default-method "ssh")
+
 ;(use-package! ox-twbs)
 
 ;; gnuplot

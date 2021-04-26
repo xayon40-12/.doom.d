@@ -52,6 +52,7 @@
 (package! evil-tutor)
 (package! ron-mode)
 (package! gnuplot)
+(package! org-ref)
 ;(package! exwm)
 ;(package! dmenu)
 ;(package! ox-twbs)
