@@ -28,9 +28,9 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-palenight)
-(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 32)
-      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 32)
-      doom-big-font (font-spec :family "Mononoki Nerd Font" :size 48))
+(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 28)
+      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 28)
+      doom-big-font (font-spec :family "Mononoki Nerd Font" :size 40))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
