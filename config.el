@@ -42,7 +42,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (after! org
-  (setq org-directory "~/org/"
+  (setq org-directory (concat (substitute-in-file-name "$HOME") "/org/")
         org-image-actual-width '(500)
         org-hide-emphasis-markers t
         org-startup-with-inline-images t
@@ -57,6 +57,10 @@
         (cons '(:results . "output verbatim replace") (assq-delete-all :results org-babel-default-header-args))
         )
   )
+
+;;orgmobile config
+(mapc (lambda (name) (load name)) (directory-files "~/.doom.d/.local/" t "^[^\.]"))
+
 (map! :leader
       :desc "Open ~/org/notes.org"
       "o n" #'(lambda () (interactive) (find-file "~/org/notes.org")))
