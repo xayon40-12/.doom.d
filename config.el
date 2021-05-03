@@ -47,6 +47,7 @@
         org-hide-emphasis-markers t
         org-startup-with-inline-images t
         org-startup-with-latex-preview t
+        org-startup-folded 'content
         org-export-with-toc t
         org-export-with-date nil
         org-babel-default-header-args
