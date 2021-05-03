@@ -58,6 +58,8 @@
         (cons '(:results . "output verbatim replace") (assq-delete-all :results org-babel-default-header-args))
         )
   )
+;;needed
+(setq org-babel-tangle-lang-exts '())
 
 ;;orgmobile config
 (mapc (lambda (name) (load name)) (directory-files "~/.doom.d/.local/" t "^[^\.]"))
@@ -142,12 +144,12 @@
 ;;(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
 (setq org-ditaa-jar-path "/home/xayon/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
 
-(use-package! ron-mode)
+(require 'ron-mode)
 
 ;; org-ref
-(use-package! org-ref)
-(use-package! ox-bibtex)
-(use-package! ox-beamer)
+(require 'org-ref)
+(require 'ox-bibtex)
+(require 'ox-beamer)
 (setq reftex-default-bibliography '("~/thesis/bibliography/references.bib"))
 ;; see org-ref for use of these variables
 (setq org-ref-bibliography-notes "~/thesis/bibliography/notes.org"
