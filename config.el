@@ -28,13 +28,15 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-palenight)
-(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 28)
-      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 28)
+(setq doom-font (font-spec :family "Mononoki Nerd Font" :size 22)
+      doom-variable-pitch-font (font-spec :family "Mononoki Nerd Font" :size 22)
       doom-big-font (font-spec :family "Mononoki Nerd Font" :size 40))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-palenight t))
+  (load-theme 'doom-palenight t)
+  (set-mouse-color "white"))
+(set-mouse-color "white")
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -91,7 +93,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
